@@ -15,14 +15,13 @@ using System.Windows.Shapes;
 
 namespace NGOK_SpreadSheetTTS_WPF_Project
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            Models.Initializaton.Init();
+            DataContext = new ViewModels.ApplicationViewModel();
         }
     }
 }

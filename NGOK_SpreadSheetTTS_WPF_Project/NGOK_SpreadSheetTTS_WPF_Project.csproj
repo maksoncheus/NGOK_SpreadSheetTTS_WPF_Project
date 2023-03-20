@@ -7,4 +7,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Sheets.v4" Version="1.60.0.2979" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="spreadsheet_credentials.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
