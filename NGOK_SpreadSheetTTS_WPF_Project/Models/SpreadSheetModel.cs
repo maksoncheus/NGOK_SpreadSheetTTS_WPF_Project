@@ -29,26 +29,27 @@ namespace NGOK_SpreadSheetTTS_WPF_Project.Models
                 _ => ""
 
             };
+            string weekDay = date.DayOfWeek switch
+            {
+                DayOfWeek.Monday => "Понедельник",
+                DayOfWeek.Tuesday => "Вторник",
+                DayOfWeek.Wednesday => "Среда",
+                DayOfWeek.Thursday => "Четверг",
+                DayOfWeek.Friday => "Пятница",
+                DayOfWeek.Saturday => "Суббота",
+                _ => ""
+
+            };
             if (String.IsNullOrEmpty(range))
             {
                 Console.WriteLine("Похоже, сегодня выходной...");
-                return ("", null);
+                return ("", new DataTable());
             }
             else
             {
                 DataTable table = new DataTable();
-                table.Columns.Add("col1");
-                table.Columns.Add("col2");
-                table.Columns.Add("col3");
-                table.Columns.Add("col4");
-                table.Columns.Add("col5");
-                table.Columns.Add("col6");
-                table.Columns.Add("col7");
-                table.Columns.Add("col8");
-                table.Columns.Add("col9");
-                table.Columns.Add("col10");
-                table.Columns.Add("col11");
-                table.Columns.Add("col12");
+                for (int iterator = 1; iterator <= 12; iterator++)
+                    table.Columns.Add("col" + iterator.ToString());
                 string tempString = "";
                 SpreadsheetsResource.ValuesResource.GetRequest request =
                         Initializaton.service.Spreadsheets.Values.Get(Initializaton.SpreadsheetId, range);
@@ -66,7 +67,7 @@ namespace NGOK_SpreadSheetTTS_WPF_Project.Models
                     }
                 }
                 table.Rows.Add(tempString.Split('|'));
-                return ("", table);
+                return (weekDay, table);
             }
         }
         public static ObservableCollection<string> GetGroups()

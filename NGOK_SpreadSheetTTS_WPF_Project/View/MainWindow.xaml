@@ -10,10 +10,22 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*" />
             <RowDefinition Height="0.1*" />
-            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="0.1*" />
         </Grid.RowDefinitions>
-
-        <ListBox Grid.Row="0" ItemsSource="{Binding Phones}"
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="1 курс" Command="{Binding SwitchSheet}" CommandParameter="1 курс"/>
+            <Button Grid.Column="1" Content="2 курс" Command="{Binding SwitchSheet}" CommandParameter="2 курс"/>
+            <Button Grid.Column="2" Content="3 курс" Command="{Binding SwitchSheet}" CommandParameter="3 курс"/>
+            <Button Grid.Column="3" Content="4 курс" Command="{Binding SwitchSheet}" CommandParameter="4 курс"/>
+        </Grid>
+        <!--<ListBox Grid.Row="0" ItemsSource="{Binding Phones}"
                  SelectedItem="{Binding SelectedPhone}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -24,10 +36,9 @@
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>
+        </ListBox>-->
 
-        <ComboBox Grid.Row="1" ItemsSource="{Binding Groups}" SelectedIndex="{Binding SelectedGroup}">
-        </ComboBox>
+        <ComboBox Grid.Row="1" ItemsSource="{Binding Groups}" SelectedIndex="{Binding SelectedGroup}" HorizontalContentAlignment="Center" TextBlock.FontSize="52"/>
         <Border Grid.Row="2" BorderBrush="#FF179AC8" BorderThickness="2">
             <Grid>
                 <Grid.RowDefinitions>
@@ -50,7 +61,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Понедельник" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" TextAlignment="Center" FontSize="50" Background="#FF6D6D6D"/>
+                <TextBlock Text="{Binding WeekDay}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" TextAlignment="Center" FontSize="50" Background="#FF6D6D6D"/>
                 <TextBlock Text="1 пара 9.00-10.30" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#FFFFFFE1"/>
                 <TextBlock Text="2 пара 10.40-12.10" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#FFFFFFBE"/>
                 <TextBlock Text="3 пара 12.30-14.00" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}"/>
@@ -99,5 +110,6 @@
                 </DataGrid>
             </Grid>
         </Border>
+        <Button Grid.Row="3" Command="{Binding Speech}" Content="Прослушать ещё раз" HorizontalContentAlignment="Center" FontSize="50"/>
     </Grid>
 </Window>
