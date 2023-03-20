@@ -1,15 +1,7 @@
-﻿using Newtonsoft.Json.Linq;
-using NGOK_SpreadSheetTTS_WPF_Project.Models;
-using System;
-using System.Collections.Generic;
+﻿using NGOK_SpreadSheetTTS_WPF_Project.Models;
 using System.Collections.ObjectModel;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Navigation;
 
 namespace NGOK_SpreadSheetTTS_WPF_Project.ViewModels
 {

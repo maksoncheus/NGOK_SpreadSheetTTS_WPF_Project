@@ -1,13 +1,8 @@
-﻿using Google.Apis.Sheets.v4.Data;
-using Google.Apis.Sheets.v4;
+﻿using Google.Apis.Sheets.v4;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Data;
-using System.Text.RegularExpressions;
 
 namespace NGOK_SpreadSheetTTS_WPF_Project.Models
 {
