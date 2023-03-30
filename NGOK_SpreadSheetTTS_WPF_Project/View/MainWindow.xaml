@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:NGOK_SpreadSheetTTS_WPF_Project" xmlns:viewmodels="clr-namespace:NGOK_SpreadSheetTTS_WPF_Project.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:ApplicationViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="800">
-    <Grid>
+    <Grid Background="#FF6D6D6D">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*" />
             <RowDefinition Height="0.1*" />
@@ -20,31 +20,18 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="1 курс" Command="{Binding SwitchSheet}" CommandParameter="1 курс"/>
-            <Button Grid.Column="1" Content="2 курс" Command="{Binding SwitchSheet}" CommandParameter="2 курс"/>
-            <Button Grid.Column="2" Content="3 курс" Command="{Binding SwitchSheet}" CommandParameter="3 курс"/>
-            <Button Grid.Column="3" Content="4 курс" Command="{Binding SwitchSheet}" CommandParameter="4 курс"/>
+            <Button Background="#757171" Grid.Column="0" Content="1 курс" FontSize="24" Command="{Binding SwitchSheet}" CommandParameter="1 курс"/>
+            <Button Background="#757171" Grid.Column="1" Content="2 курс" FontSize="24" Command="{Binding SwitchSheet}" CommandParameter="2 курс"/>
+            <Button Background="#757171" Grid.Column="2" Content="3 курс" FontSize="24" Command="{Binding SwitchSheet}" CommandParameter="3 курс"/>
+            <Button Background="#757171" Grid.Column="3" Content="4 курс" FontSize="24" Command="{Binding SwitchSheet}" CommandParameter="4 курс"/>
         </Grid>
-        <!--<ListBox Grid.Row="0" ItemsSource="{Binding Phones}"
-                 SelectedItem="{Binding SelectedPhone}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="5">
-                        <TextBlock FontSize="18" Text="{Binding Path=Title}" />
-                        <TextBlock Text="{Binding Path=Company}" />
-                        <TextBlock Text="{Binding Path=Price}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>-->
-
-        <ComboBox Grid.Row="1" ItemsSource="{Binding Groups}" SelectedIndex="{Binding SelectedGroup}" HorizontalContentAlignment="Center" TextBlock.FontSize="52"/>
-        <Border Grid.Row="2" BorderBrush="#FF179AC8" BorderThickness="2">
-            <Grid>
+        <ComboBox Background="#757171" Grid.Row="1" ItemsSource="{Binding Groups}" SelectedIndex="{Binding SelectedGroup}" HorizontalContentAlignment="Center" TextBlock.FontSize="52"/>
+        <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.2*"/>
-                    <RowDefinition Height="0.1*"/>
-                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.12*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.4*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -60,14 +47,19 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="{Binding WeekDay}" TextAlignment="Center" FontSize="50" VerticalAlignment="Center"/>
+                </Grid>
 
-                <TextBlock Text="{Binding WeekDay}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" TextAlignment="Center" FontSize="50" Background="#FF6D6D6D"/>
-                <TextBlock Text="1 пара 9.00-10.30" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#FFFFFFE1"/>
-                <TextBlock Text="2 пара 10.40-12.10" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#FFFFFFBE"/>
-                <TextBlock Text="3 пара 12.30-14.00" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}"/>
-                <TextBlock Text="4 пара 14.20-15.50" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="6" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#FFFFFFBE"/>
-                <TextBlock Text="5 пара 16.00-17.30" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="8" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}"/>
-                <TextBlock Text="6 пара 17.40-19.10" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="10" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#FFFFFFBE"/>
+                <TextBlock Text="1 пара 9.00-10.30" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#da4958"/>
+                <TextBlock Text="2 пара 10.40-12.10" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#aa3440"/>
+                <TextBlock Text="3 пара 12.30-14.00" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#da4958"/>
+                <TextBlock Text="4 пара 14.20-15.50" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="6" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#aa3440"/>
+                <TextBlock Text="5 пара 16.00-17.30" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="8" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#da4958"/>
+                <TextBlock Text="6 пара 17.40-19.10" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="10" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" Background="#aa3440"/>
                 <!--<ItemsControl Grid.Row="3" Grid.ColumnSpan="12" x:Name="tStack" ItemsSource="{Binding SpreadSheetGrid}" BorderThickness="1,1,1,1">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -75,7 +67,7 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>-->
-                <DataGrid Grid.Row ="2" FrozenColumnCount="12" Grid.ColumnSpan="12" AutoGenerateColumns="False" ItemsSource="{Binding SpreadSheetGrid}" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False">
+                <DataGrid Background="#8c8c8c" Grid.Row ="2" FrozenColumnCount="12" Grid.ColumnSpan="12" AutoGenerateColumns="False" ItemsSource="{Binding SpreadSheetGrid}" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" Grid.RowSpan="2">
                     <DataGrid.ColumnHeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="ContentTemplate">
@@ -108,8 +100,8 @@
                         <DataGridTextColumn Binding="{Binding Path=col12}" Width="*" Header="Аудитория"/>
                     </DataGrid.Columns>
                 </DataGrid>
+                <Image Grid.Row="3" Source="{StaticResource logoDrawingImage}" Grid.ColumnSpan="12" RenderTransformOrigin="0.537,0.505"></Image>
             </Grid>
-        </Border>
         <Button Grid.Row="3" Command="{Binding Speech}" Content="Прослушать ещё раз" HorizontalContentAlignment="Center" FontSize="50"/>
     </Grid>
 </Window>

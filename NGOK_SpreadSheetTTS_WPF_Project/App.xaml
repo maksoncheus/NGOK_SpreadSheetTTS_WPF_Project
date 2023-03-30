@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:NGOK_SpreadSheetTTS_WPF_Project"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary x:Name="Logo" Source="Assets/Logo.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

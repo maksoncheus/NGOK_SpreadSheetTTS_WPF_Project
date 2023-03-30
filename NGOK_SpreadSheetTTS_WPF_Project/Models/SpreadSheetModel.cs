@@ -12,7 +12,7 @@ namespace NGOK_SpreadSheetTTS_WPF_Project.Models
         {
             groupID += 3;
             DateOnly date = DateOnly.FromDateTime(DateTime.Now);
-            //string range = $"{Initializaton.sheet}!Z:AK";
+            //string range = $"{Initializaton.sheet}!BJ:BU";
             string range = date.DayOfWeek switch
             {
                 DayOfWeek.Monday => $"{Initializaton.sheet}!B:M",
@@ -32,19 +32,20 @@ namespace NGOK_SpreadSheetTTS_WPF_Project.Models
                 DayOfWeek.Thursday => "Четверг",
                 DayOfWeek.Friday => "Пятница",
                 DayOfWeek.Saturday => "Суббота",
+                DayOfWeek.Sunday => "Воскресенье",
                 _ => ""
 
             };
+            DataTable table = new DataTable();
+            for (int iterator = 1; iterator <= 12; iterator++)
+                table.Columns.Add("col" + iterator.ToString());
             if (String.IsNullOrEmpty(range))
             {
                 Console.WriteLine("Похоже, сегодня выходной...");
-                return ("", new DataTable());
+                return ("", table);
             }
             else
             {
-                DataTable table = new DataTable();
-                for (int iterator = 1; iterator <= 12; iterator++)
-                    table.Columns.Add("col" + iterator.ToString());
                 string tempString = "";
                 SpreadsheetsResource.ValuesResource.GetRequest request =
                         Initializaton.service.Spreadsheets.Values.Get(Initializaton.SpreadsheetId, range);
@@ -52,6 +53,7 @@ namespace NGOK_SpreadSheetTTS_WPF_Project.Models
                 IList<IList<object>> values = response.Values;
                 if (values != null && values.Count > 0)
                 {
+                    if (values.Count > groupID)
                     for(int i = 0; i < 12; i++)
                     {
                         if (i >= values[groupID].Count)
